@@ -1,5 +1,5 @@
-#ifndef TRAITS_HPP
-#define TRAITS_HPP
+#ifndef __TRAITS_HPP
+#define __TRAITS_HPP
 
 #include <type_traits>
 
@@ -9,13 +9,13 @@
 
 namespace traits {
 
-class TraitBase {
+class __TraitBase {
 };
 
 template<typename T>
-concept IsTrait = std::is_base_of_v<TraitBase, T>;
+concept IsTrait = std::is_base_of_v<__TraitBase, T>;
 
-#define TRAIT : public traits::TraitBase
+#define TRAIT : public traits::__TraitBase
 
 template<IsTrait... Ts>
 class impl_checker : public Ts... {};
@@ -24,4 +24,4 @@ class impl_checker : public Ts... {};
 
 } // namespace traits
 
-#endif // TRAITS_HPP
+#endif // __TRAITS_HPP
